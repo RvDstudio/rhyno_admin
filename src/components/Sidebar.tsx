@@ -24,8 +24,8 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }: SidebarProps) {
     <TooltipProvider>
       <aside
         className={`${
-          sidebarOpen ? "w-64" : "w-20"
-        } bg-white transition-all border-r duration-300 ease-in-out flex flex-col p-4 h-screen justify-between`}
+          sidebarOpen ? "w-64 xl:w-72" : "w-20"
+        } bg-white transition-all border-r duration-300 ease-in-out flex flex-col p-3 h-screen justify-between`}
       >
         <div>
           <div className="flex items-center mb-4">
@@ -44,7 +44,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }: SidebarProps) {
             )}
           </div>
 
-          <nav className="mt-4 flex-grow flex flex-col">
+          <nav className="mt-6 flex-grow flex flex-col text-gray-500">
             {/* Dynamically map sidebar links */}
             {sidebarLinks.map((link, index) => (
               <Tooltip key={index}>
@@ -56,7 +56,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }: SidebarProps) {
                     } ${isActive(link.href) ? "bg-gray-100" : ""}`} // Highlight active link
                   >
                     <link.icon
-                      className={`h-4 w-4 ${sidebarOpen ? "mr-2" : ""}`}
+                      className={`h-5 w-5 ${sidebarOpen ? "mr-4" : ""}`}
                     />
                     {sidebarOpen && <span>{link.label}</span>}
                   </Button>
@@ -73,7 +73,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }: SidebarProps) {
         <div
           className={`mt-auto p-4 ${
             sidebarOpen ? "flex" : "flex justify-center"
-          } items-center bg-gray-200 rounded-lg`}
+          } items-center bg-gray-100 rounded-lg`}
         >
           <Image
             src="/images/user-1.jpg" // Add the correct path to your user avatar image
